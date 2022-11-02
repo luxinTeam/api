@@ -1,20 +1,14 @@
 <style>
-  #show{height:600}
+  #content{color:grey;float:left;}
+  a{text-decoration: none;}
 </style>
-<script>
-    var show = document.getElementById("show")
-    var option = document.getElementById("option")
-    //option.value
-    if (show.value == "游戏厅"){
-        show.src = "./docs/1.html"
-    }
-    if (show.value == "画板"){
-        show.src = ""
-    }
-</script>
-<h1>鲁信团队旗下API文档</h1>
-<select id="chose">
-  <option value="游戏厅"></option>
-  <option value="画板"></option>
-</select>
-<iframe id="show"></iframe>
+<div id="content">
+  <h4>游戏厅</h1>
+  <a href="">简介</a>
+  <a href="">在线演示</a>
+  <a href="">代码</a>
+  <h4>画板</h1>
+  <a href="">简介</a>
+  <a href="">在线演示</a>
+  <a href="">代码</a>
+</div>
