@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <title>我的便签</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <style type="text/css">
+     *{margin:0;padding: 0; list-style: none;}
+     body{ font:12px '微软雅黑', arial, \5b8b\4f53, sans-serif;background: #efefef;line-height: 1.5}
+     #text{background: green;color: #fff;padding-bottom: 10px;font-family: "arial";}
+ 
+     #notepad{width: 400px;margin: 50px auto;border: 1px solid #ccc;position: relative;background-color: #666;overflow: hidden;}
+     #notepad h1{line-height: 35px;background-color:#582900;font-weight: normal; color: #fff;font-size: 18px;padding: 0 20px;overflow:hidden;}
+     #notepad h1 span{float: right;cursor: pointer;}
+     #notepad input{vertical-align: -3px;margin-right: 5px;}
+ 
+     #content{display:none;z-index: 100;color:#fff;position: absolute;width: 400px;height: 400px;left:0;top:0;background-color: #666;}
+     #content h1 a{color: #fff;cursor: pointer;}
+     #content h1 a:hover{color: #fff;}
+     #content #textarea{padding: 5px;border:0;overflow-x: hidden;overflow-y: hidden;height:355px;width:390px;font-size: 14px;line-height: 1.5;color: #333;}
+     #content #save{float: right;margin-right: 10px;}
+ 
+     #notepad #list{overflow: hidden;margin:15px;height:330px;overflow-x: hidden;overflow-y: auto;z-index: 99;}
+     #notepad #list li{cursor: pointer;padding:5px 15px;height:20px;background-color:#fff6c1;border-bottom: 1px solid #fea800;}
+     #notepad #list span{float:right;}
+     #notepad #list li:hover{background-color:#ffa800;color: #fff;}
+
+     #notepad #editDel{text-align: center;cursor: pointer;background-color: orange;margin: 0 15px 10px;padding: 5px 0;}
+     </style>
+ </head>
+ <body>
+ <div id="notepad">
+     <h1><span id="add">+</span>notepad-home|记事本-首页</h1>
+     <ul id="list"></ul>
+     <div id="editDel">删除多个|delete multiple</div>
+     <div id="content">
+         <h1>
+             <a id="del">delete|删除</a>
+             <a id="save">save|保存</a>         
+         </h1>
+         <textarea id="textarea"></textarea>
+     </div>
+    
+ </div>
+ 
+ <script type="text/javascript">
+
+
+
+function html5LocalStorage(){
+    var storage = window.localStorage;
+    storage.getItem("notepad") ? this.arr = storage.getItem("notepad").split(",") : this.arr = [];//this.arr我的便签数据
+    this.$ = function(id){return document.getElementById(id)};
+    return this.refresh();
+}
+
+html5LocalStorage.prototype = {
+    refresh : function(edit){//遍历数组展示数据 1=批量管理状态
+        var that = this;
+        that.$("editDel").style.display = "block";
+        that.$("list").innerHTML ="";
+        that.$("add").onclick =function(){that.add()};
+        that.$("editDel").onclick =function(){that.batchManagement()};
+        for(var i in that.arr){
+             if(that.arr==0) return;
+             var create = function(id){return document.createElement(id)},   
+                 li = create("li"),
+                 span = create("span"),
+                 strong = create("strong"),
+                 title = decodeURIComponent(that.arr[i].split("=")[1]).substring(0,20),   //标题
+                 time = that.arr[i].split("=")[0];//日期
+             span.appendChild(document.createTextNode(time));
+             strong.appendChild(document.createTextNode(title));
+            if(edit==1){//批量管理
+                var checkBox  = create("input");
+                checkBox.type = "checkbox";
+                checkBox.name = "checkbox";
+                checkBox.index = i;
+                li.appendChild(checkBox );
+                li.onclick = function(){that.check(this.index)};
+                checkBox.onclick = function(){that.check(this.index)};
+             }else{
+                li.onclick = function(){that.show(this.index)};
+             }
+             li.appendChild(span);
+             li.appendChild(strong);
+             li.index = i;
+
+             that.$("list").appendChild(li);   
+        }
+    },
+    batchManagement : function(){
+        var txt = this.$("editDel").innerHTML,
+            checkBoxs = this.$("list").getElementsByTagName("input"),
+            arr = [];
+        if(this.arr.length==0){return alert("啥都没有，您删除啥？")}
+        if(txt=="多选删除|delete multiple"){
+            this.$("editDel").innerHTML = "删除";
+            this.refresh(1);
+        }else{
+            for(var i=0; i<checkBoxs.length; i++){
+                if(checkBoxs[i].checked){
+                    arr.push(checkBoxs[i].index);
+                }
+            }
+            this.del(arr)
+        }
+    },
+    check : function(index){
+        var checkBox = this.$("list").getElementsByTagName("input")[index];
+        (checkBox.checked) ? checkBox.checked = false : checkBox.checked = true;
+    },
+    show : function(index){
+        var that = this;
+            text = that.arr[index].split("=")[1]; //标题
+        that.$("editDel").style.display = "none";
+        that.$("content").style.display = "block";
+        that.$("textarea").focus();
+        that.$("textarea").value = decodeURIComponent(text);
+        that.$("save").onclick = function(){that.save(index)};
+        that.$("del").onclick = function(){that.del(index)};
+    },
+    save : function(index){
+        var that = this,
+            txt = that.$("textarea").value,
+            date = new Date(), //取得日期
+            time = (date.getMonth()+1)+"月"+date.getDate()+"日",
+            con = time+"="+encodeURIComponent(txt);
+
+         if(index != "newStr"){//修改数据   如果内容为空 从arr删除
+            //(txt =="") ? that.arr.splice(index, 1) : that.arr.splice(index, 1, con);  
+            that.arr.splice(index, 1, con);      
+         }else{//第一项插入数据
+            that.arr.unshift(con);
+         }
+
+         that.editStorage();
+         that.refresh();
+         that.$("content").style.display = "none";
+    },
+    add : function(){
+        var that = this;
+        that.$("editDel").style.display = "none";
+        that.$("textarea").value = "";
+        that.$("content").style.display = "block";
+        that.$("textarea").focus();
+        that.$("save").onclick = function(){that.save("newStr")};
+        that.$("del").onclick = function(){that.del("newStr")};
+    },
+    del : function(index){
+        if(confirm("您确定要删除吗?")){
+             if(index == "newStr"){
+
+             }else if(typeof index == "object"){//批量删除
+                var tempArr=[];
+                for(var a in index){
+                   this.arr.splice(index[a],1,"");//找到下标替换成“空”
+                }
+                
+                for(var b in this.arr){
+                    if(this.arr[b]!="") tempArr.unshift(this.arr[b]);//把不为空的值传到tempArr
+                } 
+
+                this.arr = tempArr;
+             }else{              
+                this.arr.splice(index, 1);
+             }
+             this.$("editDel").innerHTML = "多选删除|delete multiple";
+             this.editStorage();
+             this.$("content").style.display = "none";
+             this.refresh();
+        }
+    },
+    editStorage : function(){//修改notepad
+        window.localStorage.setItem("notepad", this.arr.toString());
+    }
+}
+
+var hls = new html5LocalStorage();
+ </script>
+ </body>
+ </html>
