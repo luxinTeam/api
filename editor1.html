@@ -1,0 +1,95 @@
+<html><head><style>
+    textarea{
+        font-family: mFont;
+        src: url("./yezigongchangruanmengobaoti.ttf")
+    }
+    * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* 为每个链接设定样式 */
+        .dropbtn {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .dropdown {
+            display: inline-block;
+
+        }       
+
+        /* 下拉菜单设置样式 */
+        .dropdown-content {
+            /* 隐藏菜单 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* 设置链接元素的最小宽度 */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+            overflow: auto;
+        }
+        .dropdown-content a {
+            display: block;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;  
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+          
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+</style>
+
+    <title>HTML Code_editor</title>
+    <script>
+        alert("代码编辑框不是固定大小，如有需要，请自行调节！\n 该项目由极迅公司版权所有 \n Copyright ?2022 zexun Corporation")
+        coded = function(){
+        var strCode = document.getElementById("textareaCode").value;
+        document.getElementById("html_code").innerHTML = strCode;
+        }
+        </script></head>
+    
+    <body>
+    <nav>
+        <!-- 该ul为下拉选择框，如果要复制，请再该ul后粘贴代码，部分文字内容需要更改（可添加多个链接，链接就是选项） -->
+        <ul>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">编辑</a>
+                <div class="dropdown-content">
+                    <a type="button" id="bt" name="bt" href="javascript:coded()" style="background-color: white;border: 0;"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="987"><path d="M359.097267 756.229021a30.207434 30.207434 0 0 1-30.239433-30.239433V298.029612a30.239433 30.239433 0 0 1 45.375149-26.14351l370.64905 213.979988a30.239433 30.239433 0 0 1 0 52.351018l-370.681049 214.011988a30.079436 30.079436 0 0 1-15.103717 4.031924z m17.759667-427.447986v366.457129L694.226983 512.0096z" fill="#3D71FA" p-id="988"></path><path d="M511.9904 1024A511.9904 511.9904 0 1 1 648.53184 18.418855a23.99955 23.99955 0 1 1-12.79976 46.271132 463.9913 463.9913 0 1 0 268.82696 199.868253 23.99955 23.99955 0 1 1 40.607238-25.63152A512.086398 512.086398 0 0 1 511.9904 1024z" fill="#272D43" p-id="989"></path></svg>&nbsp;运行代码</a>
+                </div>
+            </div>
+        </ul>
+    <hr>
+    </nav>
+    <div id="container" style="height: 500px; 1000px; bgcolor : #101010">
+<textarea autocomplete="off" id="textareaCode" warp="logical" spellcheck="false" stype="display:none;" style="height: 488px; float: left; width: 274px; margin: 0px;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+    <div id="textareaCoded" style="height : 100%; width : 49%; float: right" wrap="virtual">
+    <center><p>代码展示区</p></center>
+    <p id="html_code"></p>
+    </div>
+    </div>   
+</body></html>
