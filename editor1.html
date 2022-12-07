@@ -56,28 +56,85 @@
 
     <title>HTML Code_editor</title>
     <script>
-        alert("代码编辑框不是固定大小，如有需要，请自行调节！(仅电脑版可调节) \n 该项目由极迅公司版权所有 \n Copyright ?2022 zexun Corporation")
+        console.log("检测到控制台消息过多！")
+        console.clear()
+        alert("代码编辑框不是固定大小，如有需要，请自行调节！\n该编辑器不支持js控件 \n该项目由极迅公司版权所有 \nCopyright ?2022 zexun Corporation")
         coded = function(){
         var strCode = document.getElementById("textareaCode").value;
         document.getElementById("html_code").innerHTML = strCode;
         }
-        </script></head>
+        CopyAllCode = function(){
+            var code = document.getElementById("textareaCode")
+            code.select()
+            document.execCommand("copy")
+            Debug_log("CopyAllCode组件:复制成功!")
+        }
+        function Debug_log(msg){
+            console.log(msg)
+        }
+        DelAllCode = function (){
+            var code1 = document.getElementById("textareaCode")
+            code1.innerText = null
+            Debug_log("DelAllCode组件:删除成功!")
+        }
+        close_window = function (){
+            window.opener=null
+            window.open('','_self');window.close();
+        }
+        openDevTools = function(){
+            browser.ShowDevTools()
+        }
+        Debug_error = function(msg){
+            console.error(msg)
+        }
+        open_terminal = function(){
+            alert("terminal_error:浏览器不支持终端！")
+            Debug_error("terminal_error:浏览器不支持终端！")
+        }
+        Debug_clear = function(){
+            console.clear()
+        }
+        </script>
+    </head>
     
-    <body>
+    <body class="body">
     <nav>
         <!-- 该ul为下拉选择框，如果要复制，请再该ul后粘贴代码，部分文字内容需要更改（可添加多个链接，链接就是选项） -->
         <ul>
             <div class="dropdown">
-                <a href="#" class="dropbtn">编辑</a>
+                <a href="#" class="dropbtn">运行</a>
                 <div class="dropdown-content">
                     <a type="button" id="bt" name="bt" href="javascript:coded()" style="background-color: white;border: 0;"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="987"><path d="M359.097267 756.229021a30.207434 30.207434 0 0 1-30.239433-30.239433V298.029612a30.239433 30.239433 0 0 1 45.375149-26.14351l370.64905 213.979988a30.239433 30.239433 0 0 1 0 52.351018l-370.681049 214.011988a30.079436 30.079436 0 0 1-15.103717 4.031924z m17.759667-427.447986v366.457129L694.226983 512.0096z" fill="#3D71FA" p-id="988"></path><path d="M511.9904 1024A511.9904 511.9904 0 1 1 648.53184 18.418855a23.99955 23.99955 0 1 1-12.79976 46.271132 463.9913 463.9913 0 1 0 268.82696 199.868253 23.99955 23.99955 0 1 1 40.607238-25.63152A512.086398 512.086398 0 0 1 511.9904 1024z" fill="#272D43" p-id="989"></path></svg>&nbsp;运行代码</a>
                 </div>
             </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">编辑</a>
+                <div class="dropdown-content">
+                    <a type="button" id="bt" name="bt" href="javascript:CopyAllCode()" style="background-color: white;border: 0;"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2422"><path d="M866.133333 919.466667h-405.333333c-29.866667 0-53.333333-23.466667-53.333333-53.333334v-618.666666c0-29.866667 23.466667-53.333333 53.333333-53.333334h405.333333c29.866667 0 53.333333 23.466667 53.333334 53.333334v618.666666c0 29.866667-23.466667 53.333333-53.333334 53.333334z" fill="#69C0FF" p-id="2423"></path><path d="M770.133333 428.8h-213.333333c-12.8 0-21.333333-8.533333-21.333333-21.333333s8.533333-21.333333 21.333333-21.333334h213.333333c12.8 0 21.333333 8.533333 21.333334 21.333334s-10.666667 21.333333-21.333334 21.333333zM770.133333 556.8h-213.333333c-12.8 0-21.333333-8.533333-21.333333-21.333333s8.533333-21.333333 21.333333-21.333334h213.333333c12.8 0 21.333333 8.533333 21.333334 21.333334s-10.666667 21.333333-21.333334 21.333333zM770.133333 684.8h-213.333333c-12.8 0-21.333333-8.533333-21.333333-21.333333s8.533333-21.333333 21.333333-21.333334h213.333333c12.8 0 21.333333 8.533333 21.333334 21.333334s-10.666667 21.333333-21.333334 21.333333z" fill="#FFFFFF" p-id="2424"></path><path d="M567.466667 834.133333h-405.333334c-29.866667 0-53.333333-23.466667-53.333333-53.333333v-618.666667c0-29.866667 23.466667-53.333333 53.333333-53.333333h405.333334c29.866667 0 53.333333 23.466667 53.333333 53.333333v618.666667c0 29.866667-23.466667 53.333333-53.333333 53.333333z" fill="#1890FF" p-id="2425"></path><path d="M471.466667 343.466667h-213.333334c-12.8 0-21.333333-8.533333-21.333333-21.333334s8.533333-21.333333 21.333333-21.333333h213.333334c12.8 0 21.333333 8.533333 21.333333 21.333333s-10.666667 21.333333-21.333333 21.333334zM471.466667 471.466667h-213.333334c-12.8 0-21.333333-8.533333-21.333333-21.333334s8.533333-21.333333 21.333333-21.333333h213.333334c12.8 0 21.333333 8.533333 21.333333 21.333333s-10.666667 21.333333-21.333333 21.333334zM471.466667 599.466667h-213.333334c-12.8 0-21.333333-8.533333-21.333333-21.333334s8.533333-21.333333 21.333333-21.333333h213.333334c12.8 0 21.333333 8.533333 21.333333 21.333333s-10.666667 21.333333-21.333333 21.333334z" fill="#FFFFFF" p-id="2426"></path></svg>&nbsp;复制所有代码</a>
+                    <a type="button" id="bt" name="bt" href="javascript:DelAllCode()" style="background-color: white;border: 0;"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4377"><path d="M159.665 220.416c0-24.125 19.608-43.736 43.735-43.736h218.784v-43.789c0-24.125 19.61-43.735 43.846-43.735h87.467c24.183 0 43.793 19.61 43.793 43.735v43.789h218.781c24.183 0 43.792 19.61 43.792 43.736v43.791H159.665v-43.791z" fill="#00A0E9" p-id="4378"></path><path d="M203.4 307.942v583.534c0 24.127 19.608 43.735 43.789 43.735h525.094c24.238 0 43.789-19.608 43.789-43.735V307.941H203.4z m175.049 496.01c0 24.125-19.608 43.732-43.733 43.732-24.183 0-43.791-19.607-43.791-43.732V439.255c0-24.181 19.608-43.734 43.791-43.734 24.125 0 43.733 19.553 43.733 43.734v364.697z m175.048 0c0 24.125-19.551 43.732-43.733 43.732-24.237 0-43.734-19.607-43.734-43.732V439.255c0-24.181 19.498-43.734 43.734-43.734 24.182 0 43.733 19.553 43.733 43.734v364.697z m175.051 0c0 24.125-19.609 43.732-43.788 43.732-24.127 0-43.737-19.607-43.737-43.732V439.255c0-24.181 19.61-43.734 43.737-43.734 24.179 0 43.788 19.553 43.788 43.734v364.697z" fill="#036EB8" p-id="4379"></path></svg>&nbsp;删除所有代码</a>
+                    
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">帮助</a>
+                <div class="dropdown-content">
+                    <a type="button" id="bt" name="bt" href="javascript:openDevTools()" style="background-color: white;border: 0;"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5614"><path d="M876.8 512l-320 313.6c-6.4 6.4-12.8 6.4-19.2 6.4-6.4 0-19.2-6.4-25.6-12.8-12.8-12.8-12.8-32 0-44.8L787.2 512 512 249.6c-12.8-12.8-12.8-38.4 0-44.8 12.8-12.8 32-12.8 44.8-6.4l320 313.6zM211.2 198.4c-6.4-6.4-32-6.4-44.8 6.4s-12.8 32 0 44.8L441.6 512l-268.8 262.4c-12.8 12.8-12.8 32 0 44.8 0 6.4 12.8 12.8 19.2 12.8 6.4 0 19.2 0 19.2-6.4l320-313.6-320-313.6z" fill="" p-id="5615"></path></svg>&nbsp;打开开发者工具</a>
+                    
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">终端</a>
+                <div class="dropdown-content">
+                    <a type="button" id="bt" name="bt" href="javascript:open_terminal()" style="background-color: white;border: 0;">&nbsp;打开终端</a>
+                    
+                </div>
+            </div>
+            <a href="javascript:close_window()" class="dropbtn"><svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5027"><path d="M706.559974 430.079943a27.306663 27.306663 0 0 1-27.306663-27.306663V181.998909H573.439992a27.306663 27.306663 0 1 1 0-54.613326h130.525849a30.037329 30.037329 0 0 1 30.037329 30.037329v245.759968a27.306663 27.306663 0 0 1-27.443196 26.897063z m-2.730666-248.081034zM703.829308 896.61428H573.439992a27.306663 27.306663 0 0 1 0-54.613326h105.949852V625.732183a27.306663 27.306663 0 0 1 54.613326 0v240.844768a30.037329 30.037329 0 0 1-30.173862 30.037329z" fill="#0073FF" p-id="5028"></path><path d="M573.439992 896.61428a27.306663 27.306663 0 0 1-27.306663-27.306663V154.692246a27.306663 27.306663 0 0 1 54.613326 0v714.615371a27.306663 27.306663 0 0 1-27.306663 27.306663z" fill="#0073FF" p-id="5029"></path><path d="M201.386708 184.729575a27.306663 27.306663 0 0 1-27.306663-27.306663v-4.915199A30.310396 30.310396 0 0 1 194.150442 122.879984L562.107727 1.501866a29.218129 29.218129 0 0 1 26.077863 3.959467A30.446929 30.446929 0 0 1 600.746655 30.173863v124.518383a27.306663 27.306663 0 0 1-54.613326 0V64.307191L225.280038 170.666644a27.306663 27.306663 0 0 1-23.89333 14.062931z m377.924216-131.345049zM571.255459 1023.999863a29.218129 29.218129 0 0 1-9.284266-1.501866L194.286976 901.11988a30.446929 30.446929 0 0 1-20.206931-29.21813v-4.915199a27.306663 27.306663 0 0 1 51.199993-13.653331L546.133329 959.692672v-90.385055a27.306663 27.306663 0 0 1 54.613326 0v124.518384a30.446929 30.446929 0 0 1-12.424532 24.71253 29.081596 29.081596 0 0 1-17.066664 5.461332z m7.918932-53.384526z" fill="#0073FF" p-id="5030"></path><path d="M201.386708 893.883614a27.306663 27.306663 0 0 1-27.306663-27.306663V157.422912a27.306663 27.306663 0 0 1 54.613326 0v709.154039a27.306663 27.306663 0 0 1-27.306663 27.306663zM464.21334 539.306595h-50.380794a27.306663 27.306663 0 1 1 0-54.613326H464.21334a27.306663 27.306663 0 0 1 0 54.613326zM912.179147 539.306595H655.359981a27.306663 27.306663 0 0 1 0-54.613326h256.819166a27.306663 27.306663 0 0 1 0 54.613326z" fill="#0073FF" p-id="5031"></path><path d="M917.777013 539.306595a27.306663 27.306663 0 0 1-19.251198-8.055466l-103.492253-103.492253a27.306663 27.306663 0 0 1 38.638928-38.638928l103.492253 103.492253a27.306663 27.306663 0 0 1-19.251197 46.55786z" fill="#0073FF" p-id="5032"></path><path d="M814.28476 642.798848a27.306663 27.306663 0 0 1-19.251198-46.557861l103.492253-103.492253a27.306663 27.306663 0 1 1 38.638928 38.638928l-103.628786 103.492253a27.306663 27.306663 0 0 1-19.251197 7.918933z" fill="#0073FF" p-id="5033"></path></svg>&nbsp;退出软件</a>
         </ul>
     <hr>
     </nav>
     <div id="container" style="height: 500px; 1000px; bgcolor : #101010">
-<textarea autocomplete="off" id="textareaCode" warp="logical" spellcheck="false" stype="display:none;" style="height: 488px; float: left; width: 274px; margin: 0px;">&lt;!DOCTYPE html&gt;
+<textarea placeholder="请输入html代码。注意，不支持js控件" autocomplete="off" id="textareaCode" warp="logical" spellcheck="false" stype="display:none;" style="height: 488px; float: left; width: 274px; margin: 0px;" id="code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     
@@ -86,6 +143,10 @@
     
 &lt;/body&gt;
 &lt;/html&gt;
+&lt;link rel="stylesheet" href=""&gt;
+&lt;style&gt;
+       
+&lt;/style&gt;
 </textarea>
     <div id="textareaCoded" style="height : 100%; width : 49%; float: right" wrap="virtual">
     <p id="html_code"></p>
