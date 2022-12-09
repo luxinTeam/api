@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function change_to_win(){
+        location.replace("./win.html")
+    }
+</script>
+<style>
+    #win{
+        background-image: url(./edu_BG.jpg);
+        background-position: center;
+        width: 1249px;
+        height: 555px;
+        border: #ffffff 1px solid;
+    }
+    .apps{
+        float: left;
+        text-align: center;
+        margin: -15px 0 0 -30px;
+        list-style: none;
+        left:100px;
+    }
+    .apps a{
+        text-decoration: none;
+        border: solid 1px transparent;
+        display: block;
+        padding: 3px;
+        margin: 20px 0 0 0;
+        color: #ffffff;
+        text-shadow: 0.2em 0.1em 0.3em #000000;
+        left: 100px;
+    }
+    .apps a:hover{
+        border: solid 1px #bbd6ec;
+        -webkit-border-radius: 3px;
+        box-shadow: inset 0 0 1px #fff;
+        -webkit-box-shadow: inset 0 0 1px #fff;
+        background-color: #5caae8;
+    }
+    .apps>img{
+
+        left: 1rem;
+    }
+    #taskbar{
+        height: 42px;
+        width: 1250px;
+        margin: -42px 0 0 1px;
+        background-color: rgb(241, 239, 239);
+        bottom: 0px;
+    }
+</style>
+<body>
+<div id="win">
+    <!-- <img src="./winBgImg.jpg" width="100%" height="100%"> -->
+    <!-- <div id="apps">
+        <a href="https://netease-music.fe-mm.com/" target="blank">
+            <img src="http://myim.online/assets/mmPlayer.cd6b6563.png" alt=""><br>
+            MusicPlyer
+        </a>
+    </div> -->
+    <ul class="apps">
+        <li>
+            <a href="https://netease-music.fe-mm.com/" target="blank" title="音乐播放器">
+                <img src="http://myim.online/assets/mmPlayer.cd6b6563.png" alt="图片加载失败!" height="50px" width="50px"><br>
+                MusicPlyer
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="taskbar">
+    <a href="" style="text-decoration: none;" title="开始">
+        &nbsp;&nbsp;<img height="25px" width="25px" src="data:image/png;base64,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">
+    </a>
+    <a href="javascript:change_to_win()" style="text-decoration: none;">
+        &nbsp;&nbsp;<img src="http://myim.online/assets/term.11d17fef.ico" alt="" height="27px" width="27px" title="切换普通桌面">
+    </a>
+    <a href="https://netease-music.fe-mm.com/" target="blank" style="text-decoration: none;" title="音乐播放器">
+        &nbsp;&nbsp;<img src="http://myim.online/assets/mmPlayer.cd6b6563.png" alt="图片加载失败!" height="35px" width="35px">
+    </a>
+</div>
+</body>
+</html>
