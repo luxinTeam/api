@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器</title>
+</head>
+<script>
+    var submit = document.getElementById("submit")
+    var url = document.getElementById("url").value
+    var iframe = document.getElementById("iframe")
+    function go(){
+        document.getElementById("iframe1").src = document.getElementById("url").value
+    }
+</script>
+<style>
+    body,html{
+        margin: 0;
+        padding: 0;
+    }
+    #url{
+        background-color: rgb(223, 219, 219);
+        border: 0;
+        border-radius: 20px;
+        /* width: 1269px; */
+        width: 1209px;
+        height: 20px;
+        display: inline-block;
+    }
+    iframe{
+        width: 1269px;
+        height: 550px;
+    }
+    #submit{
+        width: 40px;
+        border-radius: 10px;
+        border: 0;
+        display: inline-block;
+    }
+</style>
+<body>
+    <input type="text" id="url"><input type="button" id="submit" value="前往" onclick="go()"><hr style="color: white;">
+    <iframe src="https://cn.bing.com/" frameborder="0" id="iframe1"></iframe>
+</body>
+</html>

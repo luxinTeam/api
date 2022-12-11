@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日历组件</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #CCCCFF;
+    }
+    #calendar{
+        background-color: #fff;
+        width: 200px;
+        height: 190px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 100px auto;
+        text-align: center;
+    }
+    #calendar .yearMon{
+        background-color: #ddd;
+        padding: 5px 0;
+    }
+    #calendar .date{
+        color: #0099FF;
+        font-size: 96px;
+        font-weight: bold;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(
+        function(){
+            var nowDate = new Date()
+            var year = nowDate.getFullYear()
+            var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1):
+            nowDate.getMonth() + 1
+            var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate():
+            nowDate.getDate()
+            var week = "星期" + "日一二三四五六七".split(/(?!\b)/)[nowDate.getDay()]
+            $(".yearMon").text(year+"年"+month+'月')
+            $(".date").text(date)
+            $(".week").text(week)
+        }
+    )
+</script>
+
+<body>
+    <div id="calendar">
+        <div class="yearMon"></div>
+        <div class="date"></div>
+        <div class="week"></div>
+    </div>
+</body>
+</html>
