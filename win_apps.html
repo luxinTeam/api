@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows</title>
+</head>
+<script src="https:/cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function change_to_win(){
+        location.replace("./win.html")
+    }
+    function win_s(){
+        var sousuo_text = document.getElementById("sousuo").value
+        //var sousuo_text = prompt("在这里输入你要搜索的内容")
+        location.replace("https://baidu.com/s?wd="+sousuo_text)
+    }
+    function gettime(){
+        var a = new Date();
+        var b = a.getFullYear();
+        var c = a.getMonth() + 1;
+        var d = a.getDay();
+        var e = a.getDate();
+        var f = a.getHours();
+        var g = a.getMinutes();
+        var m = a.getSeconds();
+        $("#con").text(f + ":" + g)
+    }
+</script>
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+    #win{
+        background-image: url(./edu_BG.jpg);
+        background-position: center;
+        width: 1249px;
+        height: 555px;
+        border: #ffffff 1px solid;
+    }
+    .apps{
+        float: left;
+        text-align: center;
+        margin: -15px 0 0 -30px;
+        list-style: none;
+        left:100px;
+    }
+    .apps a{
+        text-decoration: none;
+        border: solid 1px transparent;
+        display: block;
+        padding: 3px;
+        margin: 20px 0 0 0;
+        color: #ffffff;
+        text-shadow: 0.2em 0.1em 0.3em #000000;
+        left: 100px;
+        font-size: 8px;
+    }
+    .apps a:hover{
+        border: solid 1px #bbd6ec;
+        -webkit-border-radius: 3px;
+        box-shadow: inset 0 0 1px #fff;
+        -webkit-box-shadow: inset 0 0 1px #fff;
+        background-color: #5caae8;
+    }
+    .apps>img{
+
+        left: 1rem;
+    }
+    #taskbar{
+        height: 42px;
+        width: 1250px;
+        margin: -42px 0 0 1px;
+        background-color: #d2e3ee;
+        bottom: 0px;
+    }
+    #taskbar a img{
+        border: 3px solid #d2e3ee;
+    }
+    /* #taskbar input{
+        border-style: 10px solid black;
+        width: 170px;
+        height: 25px;
+        bottom: 10px;
+    } */
+    #time{
+        float: right;
+    }
+    #taskbar a:hover img:hover{
+        background-color: rgb(247, 242, 242);
+    }
+</style>
+<body>
+<div id="win">
+    <!-- <img src="./winBgImg.jpg" width="100%" height="100%"> -->
+    <!-- <div id="apps">
+        <a href="https://netease-music.fe-mm.com/" target="blank">
+            <img src="http://myim.online/assets/mmPlayer.cd6b6563.png" alt=""><br>
+            MusicPlyer
+        </a>
+    </div> -->
+    <ul class="apps">
+        <!-- <li>
+            <a href="" target="blank" title="">
+                <img src="" alt="图片走丢了！" height="40px" width="40px"><br>
+                
+            </a>
+        </li> -->
+        <li>
+            <a href="https://youku.com/" target="blank" title="优酷">
+                <img src="https://img.alicdn.com/tfs/TB1WeJ9Xrj1gK0jSZFuXXcrHpXa-195-195.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                优酷
+            </a>
+        </li>
+        <li>
+            <a href="https://y.qq.com" target="blank" title="QQ音乐">
+                <img src="https://y.qq.com/favicon.ico?max_age=2592000" alt="图片走丢了！" height="40px" width="40px"><br>
+                QQ音乐
+            </a>
+        </li>
+        <li>
+            <a href="https://ditu.amap.com/" target="blank" title="高德地图">
+                <img src="https://a.amap.com/pc/static/favicon.ico" alt="" height="40px" width="40px"><br>
+                高德地图
+            </a>
+        </li>
+        <li>
+            <a href="https://enweb.seewo.com/" target="blank" title="希沃白板">
+                <img src="https://e.seewo.com/static/images/logo_en5_48@2x-cce857090e.png" alt="" height="40px" width="40px"><br>
+                希沃白板5
+            </a>
+        </li>
+        <li>
+            <a href="https://weather.com/zh-CN/weather/today/l/CHXX0008:1:CH?Goto=Redirected" target="blank" title="天气">
+                <img src="https://weather.com/daybreak-today/assets/android-icon-192x192.59ccbc.png" alt="" height="40px" width="40px"><br>
+                天气
+            </a>
+        </li>
+        <li>
+            <a href="https://www.office.com/" target="blank" title="office">
+                <img src="https://res.cdn.office.net/officehub/officestartresources/office-icon_light_and_dark.svg" alt="" height="40px" width="40px"><br>
+                Office
+            </a>
+        </li>
+    </ul>
+    <ul class="apps">
+        <li>
+            <a href="https://smile.shec.edu.cn/#/" target="blank" title="上海微校">
+                <img src="https://smile.shec.edu.cn/favicon.ico" alt="" height="40px" width="40px"><br>
+                上海微校
+            </a>
+        </li>
+        <li>
+            <a href="https://filehelper.weixin.qq.com" target="blank" title="文件传输助手">
+                <img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" alt="" height="40px" width="40px"><br>
+                文件传输助手
+            </a>
+        </li>
+
+        <!-- <li>
+            <a href="https://photoshop.adobe.com/" target="blank" title="AdobePhotoShop">
+                <img src="https://ps.ssl.qhimg.com/sdmt/536_522_100/t01e2a183f7806ed8be.webp" alt="" height="40px" width="40px"><br>
+                PS
+            </a>
+        </li> -->
+        <li>
+            <a href="https://toolwa.com/ps/" target="blank" title="AdobePhotoShop">
+                <img src="https://ps.ssl.qhimg.com/sdmt/536_522_100/t01e2a183f7806ed8be.webp" alt="" height="40px" width="40px"><br>
+                PS
+            </a>
+        </li>
+        <li>
+            <a href="https://www.67tool.com/video/screen" target="blank" title="屏幕录制">
+                <img src="https://toolwa.com/record/favicon.ico" alt="" height="40px" width="40px"><br>
+                屏幕录制
+            </a>
+        </li>
+        <li>
+            <a href="https://www.kdocs.cn/" target="blank" title="金山文档">
+                <img src="https://qn.cache.wpscdn.cn/s1/static/images/d639ad26dbf2e1aa2e14.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                金山文档
+            </a>
+        </li>
+        <li>
+            <a href="https://www.67tool.com/" target="blank" title="工具箱">
+                <img src="https://www.67tool.com/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                工具箱
+            </a>
+        </li>
+    </ul>
+    <ul class="apps">
+        <li>
+            <a href="https://netease-music.fe-mm.com/" target="blank" title="音乐播放器">
+                <img src="http://myim.online/assets/mmPlayer.cd6b6563.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                MMPlyer
+            </a>
+        </li>
+        <li>
+            <a href="https://zhihu.com/" target="blank" title="知乎">
+                <img src="https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                知乎
+            </a>
+        </li>
+        <li>
+            <a href="https://csdn.net" target="blank" title="csdn">
+                <img src="https://g.csdnimg.cn/static/logo/favicon32.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                csdn
+            </a>
+        </li>
+        <li>
+            <a href="https://music.163.com" target="blank" title="网易云音乐">
+                <img src="https://s1.music.126.net/style/favicon.ico?v20180823" alt="图片走丢了！" height="40px" width="40px"><br>
+                网易云音乐
+            </a>
+        </li>
+        <li>
+            <a href="https://iqiyi.com/" target="blank" title="爱奇艺">
+                <img src="https://www.iqiyipic.com/pcwimg/128-128-logo.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                爱奇艺
+            </a>
+        </li>
+        <li>
+            <a href="https://www.wps.cn" target="blank" title="WPS">
+                <img src="https://static.epy.wpscdn.cn/favicon.ico?v=1" alt="图片走丢了！" height="40px" width="40px"><br>
+                WPS
+            </a>
+        </li>
+    </ul>
+    <ul class="apps">
+        <li>
+            <a href="https://wx.qq.com" target="blank" title="微信">
+                <img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                微信
+            </a>
+        </li>
+        <li>
+            <a href="https://vscode.dev" target="blank" title="code">
+                <img src="https://vscode.dev/static/stable/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                code
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com" target="blank" title="Github">
+                <img src="https://github.com/fluidicon.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                Github
+            </a>
+        </li>
+        <li>
+            <a href="" target="blank" title="产品培训.mp4">
+                <img src="https://ps.ssl.qhimg.com/sdmt/2048_2048_100/t0161cfdd055a35f7bf.webp" alt="图片走丢了！" height="40px" width="40px"><br>
+                产品培训.mp4
+            </a>
+        </li>
+        <li>
+            <a href="https://luxinteam.github.io/view/v1.1/view.html" target="blank" title="云盘">
+                <img src="https://win11.blueedge.me/img/icon/explorer.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                云盘
+            </a>
+        </li>
+        <li>
+            <a href="./browser.html" target="blank" title="浏览器">
+                <img src="https://win11.blueedge.me/img/icon/edge.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                浏览器
+            </a>
+        </li>
+    </ul>
+    <ul class="apps">
+        <li>
+            <a href="https://www.musicca.com/zh/tools" target="blank" title="musicca">
+                <img src="https://www.musicca.com/templates/musicca/images/favicon.png" alt="图片走丢了！" height="40px" width="40px"><br>
+                音乐工具
+            </a>
+        </li>
+        <li>
+            <a href="https://member.bilibili.com/studio/bs-editor/projects" target="blank" title="必剪">
+                <img src="https://static.hdslb.com/images/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                必剪
+            </a>
+        </li>
+        <li>
+            <a href="https://bilibili.com/" target="blank" title="bilibili">
+                <img src="https://static.hdslb.com/images/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                哔哩哔哩
+            </a>
+        </li>
+        <li>
+            <a href="https://magicstudio.com/magiceraser" target="blank" title="抠图">
+                <img src="https://magicstudio.com/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                抠图
+            </a>
+        </li>
+        <li>
+            <a href="https://luxinteam.github.io/api/editor1.html" target="blank" title="ZEXUN Code">
+                <img src="https://vscode.dev/static/stable/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                ZexunCode
+            </a>
+        </li>
+        <li>
+            <a href="https://douyin.com/" target="blank" title="抖音">
+                <img src="https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                抖音
+            </a>
+        </li>
+    </ul>
+    <ul class="apps">
+        <li>
+            <a href="https://kuaishou.com" target="blank" title="快手">
+                <img src="https://static.yximgs.com/udata/pkg/WEB-LIVE/kwai_icon.8f6787d8.ico" alt="图片走丢了！" height="40px" width="40px"><br>
+                快手
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
